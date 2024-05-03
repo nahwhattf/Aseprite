@@ -17,8 +17,8 @@ jobs:
       - name: get skia for aseprite
         run: |
           curl https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-Linux-Release-x64-libc++.zip --output skia-libc++-x64.zip
-          mkdir /home/runner/deps/skia
-          unzip skia-libc++-x64.zip -d ~/deps/skia
+          mkdir $HOME/skia
+          unzip skia-libc++-x64.zip -d $HOME/skia
           
       - name: Install dependencies
         run: |
@@ -39,7 +39,7 @@ jobs:
           -DCMAKE_CXX_FLAGS:STRING=-stdlib=libc++ \
           -DCMAKE_EXE_LINKER_FLAGS:STRING=-stdlib=libc++ \
           -DLAF_BACKEND=skia \
-          -DSKIA_DIR=$HOME/deps/skia \
+          -DSKIA_DIR=$HOME/skia \
           -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
           -DSKIA_LIBRARY=$HOME/deps/skia/out/Release-x64/libskia.a \
           -G Ninja \
