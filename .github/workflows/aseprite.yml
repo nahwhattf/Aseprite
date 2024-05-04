@@ -16,9 +16,9 @@ jobs:
 
       - name: get skia for aseprite
         run: |
-          curl https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-Linux-Release-x64-libc++.zip --output skia-libc++-x64.zip
+          curl https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-Linux-Release-x64-libc++.zip --output skia.zip
           mkdir $HOME/skia
-          unzip skia-libc++-x64.zip -d $HOME/skia
+          unzip skia.zip -d $HOME/skia
           
       - name: Install dependencies
         run: |
